@@ -1,0 +1,34 @@
+<div id="bread-crumbs-wrap">
+    <ul>
+        <li><a href="/">home</a></li>
+        <li>Articles</li>
+    </ul>
+</div>
+
+<div id="portfolio-container">
+    <div class="fancy-header">
+        <h5>Articles</h5>
+    </div>
+    
+    <? foreach ($this->articles as $article) : ?>
+        <article style="overflow:hidden;clear:both;margin:20px 0px;">
+
+            <h1><a href="/articles/<?= $article->getSlug(); ?>"><?= $article->getTitle(); ?></a></h1>
+
+            <div style="float:left;width:248px;height:168px;position:relative;">
+            <?php if ($article->hasThumbnail()) : ?>
+                <a href="/articles/<?= $article->getSlug(); ?>" style="float:left;"><img width="244"  alt="<?= $article->getTitle(); ?>" src="<?= $article->getThumbnail(); ?>" /></a>
+            <?php endif; ?>
+            </div>
+
+            <p style="margin-left: 274px;">
+                <?= $article->getIntro(); ?>
+                <br />
+                <br />
+                <a href="/articles/<?= $article->getSlug(); ?>" class="button">Read More</a>
+            </p>
+
+        </article>
+    <? endforeach; ?>
+</div>
+

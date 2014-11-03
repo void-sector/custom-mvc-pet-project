@@ -1,0 +1,49 @@
+<div id="bread-crumbs-wrap">
+    <ul>
+        <li><a href="/">home</a></li>
+        <li><a href="/articles">Articles</a></li>
+        <li><?= $this->article->title; ?></li>
+    </ul>
+</div>
+
+
+
+<div id="content-610" class="alignleft">
+    <div class="fancy-header">
+        <h5>Introduction</h5>
+    </div>
+
+    <article>
+
+        <h1><?= $this->article->title; ?></h1>
+
+        <? if ($this->article->hasImage()) : ?>
+            <figure>
+                <img src="<?= $this->article->getImage(); ?>" title="<?= $this->article->title; ?>" />
+            </figure>
+            <br />
+            <br />
+        <? endif; ?>
+
+        <div><?= ubb(nl2br($this->article->content)); ?></div>
+    </article>
+
+</div>
+
+<div id="sidebar-wrap" class="right-bar">
+    <div id="border-topend"></div>
+
+    <div id="sidebar-content">
+
+        <? //$this->partial('sidebar-widgets/news', array('news' => $this->news)); ?>
+
+        <?= $this->partial('sidebar-widgets/twitter'); ?>
+
+        <?= $this->partial('sidebar-widgets/social-networks'); ?>
+
+        <?= $this->partial('sidebar-widgets/adds'); ?>
+
+    </div>
+
+    <div id="border-bottomend"></div>
+</div>

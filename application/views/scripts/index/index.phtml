@@ -1,0 +1,52 @@
+<div id="bread-crumbs-wrap">
+    <ul>
+        <li><a href="/">home</a></li>
+    </ul>
+</div>
+
+<div id="content-610" class="alignleft">
+
+    <section>
+        <div class="fancy-header">
+            <h5>Recent News</h5>
+        </div>
+        <? foreach ($this->news as $newsItem): ?>
+            <article class="latest-news-item">
+                <span class="date-tag"><?= date('d M', strtotime($newsItem->created)); ?></span>
+                <h3><?= $newsItem->title; ?></h3>
+                <?= $newsItem->intro; ?>
+            </article>
+        <? endforeach; ?>
+    </section>
+
+
+    <section>
+        <div class="fancy-header">
+            <h5>Recent Articles</h5>
+        </div>
+        
+        <? foreach ($this->articles as $article): ?>
+            <article class="latest-news-item">
+                <span class="date-tag"><?= date('d M', strtotime($article->created)); ?></span>
+                <h3><a href="/articles/<?= $article->slug; ?>" title="<?= $article->title; ?>"><?= $article->title; ?></a></h3>
+                <p><?= $article->intro; ?></p>
+                <a href="/articles/<?= $article->slug; ?>">Read More</a>
+            </article>
+        <? endforeach; ?>
+    </section>
+</div>
+
+
+<div id="sidebar-wrap" class="right-bar">
+    <div id="sidebar-content">
+
+        <section class="sidebar-widget">
+
+            <?= $this->partial('sidebar-widgets/news', array('news' => $this->news)); ?>
+            <?= $this->partial('sidebar-widgets/social-networks'); ?>
+            <?= $this->partial('sidebar-widgets/twitter'); ?>
+            <?= $this->partial('sidebar-widgets/adds'); ?>
+
+        </section>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<? if (count($this->news) > 0) : ?>
+
+    <div class="sidebar-widget">
+        <div class="sidebar-header">
+            <h4>Recent News</h4>
+        </div>
+        <? foreach ($this->news as $newsItem): ?>
+            <article>
+               <h1><?= $newsItem['title']; ?></h1>
+               <p><?= nl2br($newsItem['intro']); ?></p>
+            </article>
+        <? endforeach; ?>
+    </div>
+<? endif; ?>
