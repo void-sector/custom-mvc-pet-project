@@ -9,4 +9,4 @@ The project uses the MVC pattern and uses Doctrine ORM as Database Abstraction L
 
 In the application directory are some examples how to use the framework.
 
-For documentation just look at the code in the __library/App__ (it speeks for it self)
+For documentation just look at the code in the __library/App__ (it speaks for it self)
